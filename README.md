@@ -103,4 +103,37 @@ The Hungarian method is an algorithm for solving assignment problems. In the con
 **7. Repeat**
 - Repeat steps 5-6 until an optimal assignment is achieved.
 
+### Usage
+Create a cost matrix for your assignment problem
+```python
+cost_matrix = np.array([[14, 9, 12, 8, 16],
+                        [8, 7, 9, 9, 14],
+                        [9, 11, 10, 10, 12],
+                        [10, 8, 8, 6, 14],
+                        [11, 9, 10, 7, 13]])
+```
+
+Call the Hungarian method function, passing the cost matrix as a parameter.
+```python
+zero_pos = hungarian_algorithm(cost_matrix.copy())
+```
+
+Obtain the optimal assignment (result_matrix) and corresponding total cost (result).
+```python
+zero_pos = hungarian_algorithm(cost_matrix.copy())
+result, result_matrix = solve_hungarian(cost_matrix, zero_pos)
+```
+
+Output
+```
+Total cost: 44
+
+Result matrix: 
+[[ 0.  9.  0.  0.  0.]
+ [ 8.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. 12.]
+ [ 0.  0.  8.  0.  0.]
+ [ 0.  0.  0.  7.  0.]]
+```
+
 ## Transport problem - the method of least prices and iterative procedure using the UV method
