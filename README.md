@@ -120,7 +120,6 @@ zero_pos = hungarian_algorithm(cost_matrix.copy())
 
 Obtain the optimal assignment (result_matrix) and corresponding total cost (result).
 ```python
-zero_pos = hungarian_algorithm(cost_matrix.copy())
 result, result_matrix = solve_hungarian(cost_matrix, zero_pos)
 ```
 
