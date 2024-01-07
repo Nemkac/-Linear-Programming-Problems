@@ -298,3 +298,14 @@ print("\nKrajnje resenje:")
 print(solution_matrix_lc)
 print("\nZ = ", total_cost)
 ```
+
+Output
+```
+MATRICA:
+[[ 0  0 20]
+ [ 0 30  0]
+ [10  0 10]
+ [ 0 10  0]]
+
+Z =  300
+```
