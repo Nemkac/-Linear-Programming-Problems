@@ -59,10 +59,11 @@ def uv_method(costs, solution):
 def calculate_penalties(costs, U, V, solution):
     m, n = costs.shape
     penalties = np.zeros_like(solution, dtype=int)
+    tmp_solution = np.where(solution == 0, -1, solution)
 
     for i in range(m):
         for j in range(n):
-            if solution[i, j] == -1:
+            if tmp_solution[i, j] == -1:
                 penalties[i, j] = costs[i, j] - U[i] - V[j]
 
     return penalties
