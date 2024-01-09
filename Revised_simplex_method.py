@@ -17,17 +17,14 @@ def initialize_simplex(c_combined, A_combined, b):
     B = A_combined[:, B_indices]
 
     while True:
-        # Check if B matrix is invertible
         try:
             B_inv = np.linalg.inv(B)
         except np.linalg.LinAlgError:
             print("The B matrix is not invertible. Choose new basic variables.")
             break
 
-        # Check if B_inv * b is non-negative
         B_inv_b = np.dot(B_inv, b)
         if np.all(B_inv_b >= 0):
-            print("The initial basic feasible solution is feasible.")
             print("\nBasic variables indices:", B_indices)
             print("\nB matrix:")
             print(B)
@@ -64,15 +61,9 @@ def find_pivot_column(W, C, A_combined, B_indices, maximization=True):
         pivot_head_values.append(pivot_head)
 
     if maximization:
-        if all(value >= 0 for value in pivot_head_values):
-          print("Optimal")
-          return None
         pivot_col_index = np.argmin(pivot_head_values)
         pivot_head = np.min(pivot_head_values)
     else:
-        if all(value <= 0 for value in pivot_head_values):
-          print("Optimal")
-          return None
         pivot_col_index = np.argmax(pivot_head_values)
         pivot_head = np.max(pivot_head_values)
 
@@ -130,7 +121,7 @@ def revisedSimplex(B_inverse, W, B_inv_b, Cb_B_inv_b, pivot_col, pivot_row, pivo
 
 
 # Example problem
-
+'''
 c = np.array([6, 14, 13])
 A = np.array([[1, 2, 4], 
               [0.5, 2, 1]])
@@ -142,7 +133,8 @@ A = np.array([[1, 0],
               [3, 5],
               [20, 10]])
 b= np.array([28, 30, 180, 640])
-'''
+
+tolerance = 10e-10
 
 c_combined, A_combined = convert_inequality_to_equality(c, A, b)
 
@@ -180,11 +172,12 @@ print("\nPivot row:", pivot_row_index)
 maximization = True
 while True:
   
-  pivot_head_values = np.where(np.isinf(pivot_head_values), 0, pivot_head_values)
   
-  if(maximization and np.all(pivot_head_values >= 0)):
+  if maximization and np.all(np.greater_equal(pivot_head_values, -tolerance)):
+    print("Optimal solution reached.")
     break
-  if(not maximization and np.all(pivot_head_values <= 0)):
+  if not maximization and np.all(np.less_equal(pivot_head_values, tolerance)):
+    print("Optimal solution reached.")
     break
 
   print("\n------------------------------------\n")
@@ -198,7 +191,11 @@ while True:
   print("\nBasic variables indices: ", New_B_indices)
   print("\nNew W: ", New_W)
 
-  pivot_col, pivot_head, pivot_col_index, pivot_head_values = find_pivot_column(New_W, c_combined, A_combined, New_B_indices, maximization=True)
+  pivot_col_result = find_pivot_column(New_W, c_combined, A_combined, New_B_indices, maximization=True)
+  if pivot_col_result is None:
+    break
+
+  pivot_col, pivot_head, pivot_col_index, pivot_head_values = pivot_col_result
   print("\nPivot column values: ", pivot_col)
   print("\nPivot Head:", pivot_head)
   print("\nPivot column index: ", pivot_col_index)
