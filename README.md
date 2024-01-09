@@ -4,6 +4,7 @@ This repository contains implementations and examples of linear programming prob
 For each of the algorithms, a detailed explanation is given with examples for each step, as well as the result of executing certain parts of the algorithms.
 
 ## Revised simplex
+The Revised Simplex Method is an iterative optimization algorithm used for solving linear programming (LP) problems. It is an enhanced version of the original Simplex Method, designed to improve computational efficiency by maintaining feasibility throughout the iterations.
 
 ## Hungarian method for solving assignment problems
 The Hungarian method is an algorithm for solving assignment problems. In the context of linear programming, the Hungarian method provides an efficient solution to the assignment problem by leveraging the principles of combinatorial optimization.
