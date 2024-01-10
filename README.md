@@ -4,6 +4,8 @@ This repository contains implementations and examples of linear programming prob
 For each of the algorithms, a detailed explanation is given with examples for each step, as well as the result of executing certain parts of the algorithms.
 
 ## Revised simplex
+The Revised Simplex Method is an iterative optimization algorithm used for solving linear programming (LP) problems. It is an enhanced version of the original Simplex Method, designed to improve computational efficiency by maintaining feasibility throughout the iterations.
+
 
 ## Hungarian method for solving assignment problems
 The Hungarian method is an algorithm for solving assignment problems. In the context of linear programming, the Hungarian method provides an efficient solution to the assignment problem by leveraging the principles of combinatorial optimization.
@@ -13,8 +15,8 @@ The Hungarian method is an algorithm for solving assignment problems. In the con
 - Represent the assignment problem as a cost matrix, where each element represents the cost or weight associated with assigning a task to an agent.
 - For the purposes of the example, the following cost matrix will be used:
 
-  |     | A | B | C | D | E |
-  |-----|---|---|---|---|---|
+  |   | A | B | C | D | E |
+  |---|---|---|---|---|---|
   | P | 14 | 9 | 12 | 8 | 16 |
   | Q | 8 | 7 | 9 | 9 | 14 |
   | R | 9 | 11 | 10 | 10 | 12 |
@@ -24,8 +26,8 @@ The Hungarian method is an algorithm for solving assignment problems. In the con
 **2. Matrix Transformation**
 - Subtract the minimum value in each row from all the elements in that row. This ensures that there is at least one zero in each row.
   
-  |     | A | B | C | D | E |                        
-  |-----|---|---|---|---|---|
+  |   | A | B | C | D | E |                        
+  |---|---|---|---|---|---|
   | P | 14 | 9 | 12 | ***8*** | 16 |
   | Q | 8 | ***7*** | 9 | 9 | 14 |      
   | R | ***9*** | 11 | 10 | 10 | 12 |
@@ -34,8 +36,8 @@ The Hungarian method is an algorithm for solving assignment problems. In the con
   
   After row reduction, we get the following matrix.
   
-  |     | A | B | C | D | E |                        
-  |-----|---|---|---|---|---|
+  |   | A | B | C | D | E |                        
+  |---|---|---|---|---|---|
   | P | 6 | 1 | 4 | ***0*** | 8 |
   | Q | 1 | ***0*** | 2 | 2 | 7 |      
   | R | ***0*** | 2 | 1 | 1 | 3 |
@@ -44,8 +46,8 @@ The Hungarian method is an algorithm for solving assignment problems. In the con
   
 - If after reducing the rows there is a column in which there is no zero, the reduction of those columns is performed. Subtract the minimum value in each column from all the elements in that column. This ensures that there is at least one zero in each column.
 
-  |     | A | B | C | D | E |                        
-  |-----|---|---|---|---|---|
+  |   | A | B | C | D | E |                        
+  |---|---|---|---|---|---|
   | P | 6 | 1 | 4 | ***0*** | 8 |
   | Q | 1 | ***0*** | 2 | 2 | 7 |      
   | R | ***0*** | 2 | ***1*** | 1 | ***3*** |
@@ -92,8 +94,8 @@ The Hungarian method is an algorithm for solving assignment problems. In the con
 
   After updating the elements the matrix should look like this:
 
-  |     | A | B | C | D | E |                        
-  |-----|---|---|---|---|---|
+  |   | A | B | C | D | E |                        
+  |---|---|---|---|---|---|
   | P | 5 | 0 | 2 | 0 | 4 |
   | Q | 1 | 0 | 1 | 3 | 4 |      
   | R | 0 | 2 | 0 | 2 | 0 |
@@ -145,8 +147,8 @@ The transportation problem is a type of linear programming problem that deals wi
   
   Initial cost, supply and demand matrix:
 
-  |     | A | B | C | Supply |
-  |-----|---|---|---|--------|
+  |   | A | B | C | Supply |
+  |---|---|---|---|--------|
   | P | 10 | 12 | 0 | 20 |
   | Q | 8 | 4 | 3 | 30 |
   | R | 6 | 9 | 4 | 20 |
@@ -178,8 +180,8 @@ The transportation problem is a type of linear programming problem that deals wi
   
   After calculating the potential U and V the matrix looks like this:
   
-  |     | A | B | C | U |
-  |-----|---|---|---|--------|
+  |   | A | B | C | U |
+  |---|---|---|---|--------|
   | P |  |  | 20 | -8 |
   | Q |  | 20 | 10 | -5 |
   | R | 10 | 10 |  | 0 |
@@ -194,8 +196,8 @@ The transportation problem is a type of linear programming problem that deals wi
 
   The calculated penalty matrix looks like this:
 
-  |     | A | B | C |
-  |-----|---|---|---|
+  |   | A | B | C |
+  |---|---|---|---|
   | P | 12 |11 |  |
   | Q | 7 |  |  |
   | R |  |  | -4 |
@@ -219,8 +221,8 @@ We subtract 10 because it is the smallest value of all the values ​​from the
   
   The updated matrix looks like this:
   
-  |     | A | B | C |
-  |-----|---|---|---
+  |   | A | B | C |
+  |---|---|---|---
   | P |  |  | 20 |
   | Q |  | 30 | 0 |
   | R | 10 | 0 | 10 |
