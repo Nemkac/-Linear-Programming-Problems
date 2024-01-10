@@ -125,12 +125,18 @@ def solve_hungarian(cost_matrix, pos):
         solution_matrix[pos[i][0], pos[i][1]] = cost_matrix[pos[i][0], pos[i][1]]
     return total, solution_matrix
 
-
+'''
 cost_matrix = np.array([[14, 9, 12, 8, 16],
                         [8, 7, 9, 9, 14],
                         [9, 11, 10, 10, 12],
                         [10, 8, 8, 6, 14],
                         [11, 9, 10, 7, 13]])
+'''
+cost_matrix = np.array([[100, 40, 60, 100, 120],
+                        [110, 70, 70, 90, 140],
+                        [130, 80, 120, 140, 150],
+                        [140, 160, 130, 140, 10],
+                        [170, 110, 170, 200, 190]])
 
 zero_pos = hungarian_algorithm(cost_matrix.copy())
 result, result_matrix = solve_hungarian(cost_matrix, zero_pos)

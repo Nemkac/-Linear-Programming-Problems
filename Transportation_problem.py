@@ -138,6 +138,7 @@ def form_closed_path(solution_matrix, new_basic_cell, penalties, U, V):
     return final_closed_path
 
 #================================TEST 1============================================
+
 costs = np.array([[10, 12, 0],
                   [8, 4, 3],
                   [6, 9, 4],
@@ -145,12 +146,20 @@ costs = np.array([[10, 12, 0],
 
 supplies = np.array([20, 30, 20, 10])
 demands = np.array([10, 40, 30])
+'''
+costs = np.array([[40, 60, 90],
+                  [60, 80, 70],
+                  [50, 50, 100]])
 
+supplies = np.array([40, 35, 50])
+demands = np.array([35, 45, 35])
+'''
 solution_matrix_lc = np.zeros_like(costs)
 
 solution_matrix_lc += least_cost_method(costs, supplies.copy(), demands.copy())
 
 #================================TEST 2============================================
+'''
 costs2 = np.array([[3, 1, 7, 4],
                   [2, 6, 5, 9],
                   [8, 3, 3, 2]])
@@ -161,6 +170,7 @@ demands2 = np.array([200, 300, 350, 150])
 solution_matrix_lc2 = np.zeros_like(costs2)
 
 solution_matrix_lc2 += least_cost_method(costs2, supplies2.copy(), demands2.copy())
+'''
 
 iteration = 1
 while True:
