@@ -6,7 +6,16 @@ For each of the algorithms, a detailed explanation is given with examples for ea
 ## Revised simplex
 The Revised Simplex Method is an iterative optimization algorithm used for solving linear programming (LP) problems. It is an enhanced version of the original Simplex Method, designed to improve computational efficiency by maintaining feasibility throughout the iterations.
 
- $max Z = 4x1 + 12x2$
+In the example, we will work on the following optimization problem:
+ 
+$max  Z = 6x_1 + 12x_2 + 13x_3$
+
+With the following restrictions:
+
+$x_1 + 2x_2 + 4x_3 \leq 60$
+
+$\frac{1}{2}x_1 + 2x_2 + x_3 \leq 24$
+
 
 ## Hungarian method for solving assignment problems
 The Hungarian method is an algorithm for solving assignment problems. In the context of linear programming, the Hungarian method provides an efficient solution to the assignment problem by leveraging the principles of combinatorial optimization.
