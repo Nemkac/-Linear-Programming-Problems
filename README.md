@@ -48,6 +48,18 @@ After we have set the input parameters, we can move on to the algorithm itself.
   
   $\frac{1}{2}x_1 + 2x_2 + x_3 + x_5 = 24$
 
+- When we transform the constraints, we need to update the input data so that they now include the coefficients of the new parasitic variables.
+
+  ```
+  c = [6 14 13 0 0]
+  
+  A = [[ 1  2 4 1 0]
+       [0.5 2 1 0 1]]
+  ```
+
+**2. Selection of base variables**
+- We continue further work with updated parameters.
+
 
 
 ## Hungarian method for solving assignment problems
