@@ -16,6 +16,39 @@ $x_1 + 2x_2 + 4x_3 \leq 60$
 
 $\frac{1}{2}x_1 + 2x_2 + x_3 \leq 24$
 
+First, we need to set the input parameters of the algorithm. 
+The inputs of the algorithm are the following matrices:
+1. Matrix c represents the coefficients in addition to the unknowns x in the problem setting
+   
+   ```python
+   c = np.array([6, 14, 13])
+   ```
+   
+2. Matrix A represents the matrix of coefficients that stand next to each x from each constraint
+
+   ```python
+   A = np.array([[1, 2, 4], 
+                 [0.5, 2, 1]])
+   ```
+
+3. The matrix b represents the matrix of values ​​that stand to the right of the equal sign in each constraint
+
+   ```python
+   b = np.array([60, 24])
+   ```
+
+After we have set the input parameters, we can move on to the algorithm itself.
+
+### Algorithm Overview
+**1. Constraint transformation**
+- The first thing we do is transform the constraints. We convert the initial constraints into equality-type constraints. We do this by introducing a parasitic variable for each constraint. 
+- After the transformation, the constraints look like this:
+  
+  $x_1 + 2x_2 + 4x_3 + x_4 = 60$
+  
+  $\frac{1}{2}x_1 + 2x_2 + x_3 + x_5 = 24$
+
+
 
 ## Hungarian method for solving assignment problems
 The Hungarian method is an algorithm for solving assignment problems. In the context of linear programming, the Hungarian method provides an efficient solution to the assignment problem by leveraging the principles of combinatorial optimization.
