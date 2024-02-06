@@ -61,9 +61,6 @@ After we have set the input parameters, we can move on to the algorithm itself.
 - We continue further work with updated parameters.
 
 
-
-
-
 ## Hungarian method for solving assignment problems
 The Hungarian method is an algorithm for solving assignment problems. In the context of linear programming, the Hungarian method provides an efficient solution to the assignment problem by leveraging the principles of combinatorial optimization.
 
