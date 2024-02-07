@@ -12,6 +12,7 @@ $max  Z = 6x_1 + 12x_2 + 13x_3$
 
 With the following restrictions:
 
+
 $x_1 + 2x_2 + 4x_3 \leq 60$
 
 $\frac{1}{2}x_1 + 2x_2 + x_3 \leq 24$
